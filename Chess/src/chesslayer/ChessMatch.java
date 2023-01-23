@@ -1,7 +1,6 @@
 package chesslayer;
 
 import boardgame.Board;
-import boardgame.Position;
 import chesslayer.chessPieces.Rook;
 
 public class ChessMatch {
@@ -22,7 +21,12 @@ public class ChessMatch {
         return matriz;
     }
 
+    private void placeNewPiece(ChessPiece piece,char col, int row){
+        board.placePiece(piece, new ChessPosition(col, row).toPosition());
+    }
+
     private void initialSetup() {
-        board.placePiece(new Rook(board, Color.WHITE), new Position(7,0));
+        placeNewPiece(new Rook(board, Color.WHITE), 'b',6);
+        placeNewPiece(new Rook(board, Color.WHITE), 'd',6);
     }
 }
